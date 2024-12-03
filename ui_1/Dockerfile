@@ -30,7 +30,7 @@ RUN git clone https://github.com/kwonyeojoon/c_project_1-2.git /app
 # /app 디렉토리로 이동
 WORKDIR /app/ui_1
 
-# ui_1에서 requirements.txt 복사
+# ui_1 폴더 내의 requirements.txt 파일 복사
 COPY ui_1/requirements.txt ./  # ui_1 폴더 내의 requirements.txt 복사
 
 # 필요한 Python 패키지 설치
