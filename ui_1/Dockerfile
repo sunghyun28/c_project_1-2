@@ -24,12 +24,15 @@ RUN find / -name "cJSON.h"
 # 작업 디렉토리 설정
 WORKDIR /app
 
-# 프로젝트 파일 복사
-COPY ui_1 /app
+# GitHub에서 ui_1 폴더를 클론하여 /app 디렉토리에 복사
+RUN git clone https://github.com/kwonyeojoon/c_project_1-2.git /app
 
-# 필요한 라이브러리 설치 (requirements.txt가 존재하는 경우)
-COPY requirements.txt ./  # requirements.txt 경로도 확인
+# /app 디렉토리로 이동
+WORKDIR /app/ui_1
+
+# 필요한 Python 패키지 설치
+COPY requirements.txt ./  # requirements.txt 파일이 존재하면 복사
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Flask 앱 실행
-CMD ["python", "app.py"]
+CMD ["python", "app.py"]  # app.py가 main 파일이라면 실행
