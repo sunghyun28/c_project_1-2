@@ -30,8 +30,10 @@ RUN git clone https://github.com/kwonyeojoon/c_project_1-2.git /app
 # /app 디렉토리로 이동
 WORKDIR /app/ui_1
 
+# ui_1에서 requirements.txt 복사
+COPY ui_1/requirements.txt ./  # ui_1 폴더 내의 requirements.txt 복사
+
 # 필요한 Python 패키지 설치
-COPY requirements.txt ./  # requirements.txt 파일이 존재하면 복사
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Flask 앱 실행
