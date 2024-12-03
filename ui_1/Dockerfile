@@ -24,14 +24,15 @@ RUN find / -name "cJSON.h"
 # 작업 디렉토리 설정
 WORKDIR /app
 
-# GitHub에서 ui_1 폴더를 클론하여 /app 디렉토리에 복사
-RUN git clone https://github.com/kwonyeojoon/c_project_1-2.git /app
+# ui_1 폴더를 클론하여 /app 디렉토리에 복사 (이미 GitHub에서 클론할 필요 없음)
+# GitHub에서 리포지토리를 클론하는 대신 ui_1 폴더가 이미 포함된 상태라면
+# 아래 부분을 생략할 수 있습니다.
 
 # /app/ui_1 디렉토리로 이동
 WORKDIR /app/ui_1
 
 # 현재 디렉토리에서 requirements.txt를 복사
-COPY requirements.txt ./  # ui_1 폴더 내의 requirements.txt 파일 복사
+COPY ui_1/requirements.txt ./  # ui_1 폴더 내의 requirements.txt 파일 복사
 
 # 필요한 Python 패키지 설치
 RUN pip install --no-cache-dir -r requirements.txt
