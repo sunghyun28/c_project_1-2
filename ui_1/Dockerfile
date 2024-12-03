@@ -27,11 +27,11 @@ WORKDIR /app
 # GitHub에서 ui_1 폴더를 클론하여 /app 디렉토리에 복사
 RUN git clone https://github.com/kwonyeojoon/c_project_1-2.git /app
 
-# /app 디렉토리로 이동
+# /app/ui_1 디렉토리로 이동
 WORKDIR /app/ui_1
 
-# ui_1 폴더 내의 requirements.txt 파일 복사
-COPY requirements.txt ./  # ui_1 폴더 내의 requirements.txt 복사
+# 현재 디렉토리에서 requirements.txt를 복사
+COPY ./requirements.txt ./  # ui_1 폴더 내의 requirements.txt 파일 복사
 
 # 필요한 Python 패키지 설치
 RUN pip install --no-cache-dir -r requirements.txt
