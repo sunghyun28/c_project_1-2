@@ -25,17 +25,17 @@ RUN find / -name "cJSON.h"
 WORKDIR /app
 
 # ui_1 폴더의 내용을 /app 디렉토리로 복사
-COPY . /app
+COPY ./ui_1 /app
 
 # /app/ui_1 디렉토리로 이동
 WORKDIR /app/ui_1
 
 # requirements.txt를 현재 디렉토리로 복사
-COPY ./requirements.txt /app/requirements.txt
- # ui_1 폴더 내의 requirements.txt 파일 복사
+COPY ./requirements.txt /app/ui_1/requirements.txt
 
 # 필요한 Python 패키지 설치
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Flask 앱 실행
 CMD ["python", "app.py"]  # app.py가 main 파일이라면 실행
+
